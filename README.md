@@ -4,7 +4,7 @@ Este proyecto hace parte de la aplicación del transporte de ACME. Fue generado 
 
 ## Development 
 
-El sitio se encuentra desplega en la siguiente url:
+El sitio se encuentra desplegado en la siguiente url:
 
 http://45.82.73.11:8000/dist/acme-transport-web/#/
 
