@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { Owner } from '../components/owner/owner.component';
+import { Vehicle } from '../components/vehicle/vehicle.component';
 
-const API_URL = environment.baseApi + '/owners';
+const API_URL = environment.baseApi + '/vehicles';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OwnerService {
+export class VehicleService {
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +17,7 @@ export class OwnerService {
     return this.http.get<any[]>(API_URL);
   }
 
-  create(owner:Owner): Observable<any[]>{
-    return this.http.post<any[]>(API_URL, owner);
+  create(vehicle:Vehicle): Observable<any[]>{
+    return this.http.post<any[]>(API_URL, vehicle);
   }
-
 }

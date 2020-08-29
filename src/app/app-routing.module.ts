@@ -5,6 +5,8 @@ import { VehicleComponent } from "./components/vehicle/vehicle.component";
 import { DriverComponent } from "./components/driver/driver.component";
 import { OwnerComponent } from "./components/owner/owner.component";
 import { CreateOwnerComponent } from './components/owner/create-owner/create-owner.component';
+import { CreateDriverComponent } from './components/driver/create-driver/create-driver.component';
+import { CreateVehicleComponent } from './components/vehicle/create-vehicle/create-vehicle.component';
 
 const routes: Routes = [
   {
@@ -17,11 +19,15 @@ const routes: Routes = [
   },
   {
     path: 'vehicle/create',
-    component: VehicleComponent
+    component: CreateVehicleComponent
   },
   {
     path: 'driver',
     component: DriverComponent
+  },
+  {
+    path: 'driver-create',
+    component: CreateDriverComponent
   },
   {
     path: 'owner',

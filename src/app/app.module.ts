@@ -18,8 +18,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { OwnerService } from './services/owner.service';
+import { VehicleService } from './services/vehicle.service';
+import { CreateDriverComponent } from './components/driver/create-driver/create-driver.component';
+import { CreateVehicleComponent } from './components/vehicle/create-vehicle/create-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +36,8 @@ import { OwnerService } from './services/owner.service';
     VehicleComponent,
     DriverComponent,
     CreateOwnerComponent,
+    CreateDriverComponent,
+    CreateVehicleComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,14 +46,18 @@ import { OwnerService } from './services/owner.service';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatNativeDateModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
-    OwnerService
+    OwnerService,
+    VehicleService
   ],
   bootstrap: [AppComponent]
 })

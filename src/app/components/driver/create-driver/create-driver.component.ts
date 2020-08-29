@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { OwnerService } from 'src/app/services/owner.service';
+import { DriverService } from 'src/app/services/driver.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-owner',
-  templateUrl: './create-owner.component.html',
-  styleUrls: ['./create-owner.component.css']
+  selector: 'app-create-driver',
+  templateUrl: './create-driver.component.html',
+  styleUrls: ['./create-driver.component.css']
 })
-export class CreateOwnerComponent implements OnInit {
+export class CreateDriverComponent implements OnInit {
 
   checkoutForm;
   submited: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder, 
-    private _ownerService: OwnerService,
+    private _driverService: DriverService,
     private _router:Router
   ) {
     this.checkoutForm = this.formBuilder.group({
@@ -29,17 +29,15 @@ export class CreateOwnerComponent implements OnInit {
     });
   }
 
-  get f() { return this.checkoutForm.controls; };
-
   ngOnInit(): void {
-
+    
   }
 
   onSubmit(value: any) {
     this.submited = true;
     console.log('Creando Propietario');
     if (this.checkoutForm.valid){
-      this._ownerService.create(value).subscribe(
+      this._driverService.create(value).subscribe(
         (resp) => {
           this._router.navigate(['/owner']);
           console.log(resp);
@@ -53,5 +51,7 @@ export class CreateOwnerComponent implements OnInit {
       return;
     } 
   }
+
+  get f() { return this.checkoutForm.controls; }
 
 }

@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-4">
+            <div class="row">
+                <div class="col">
+                    <h2>Crear Vehículo</h2>
+                </div>
+                <div class="col">
+                    <button class="float-right" mat-raised-button color="primary" [routerLink]="['/vehicle']">
+                        <mat-icon>keyboard_backspace</mat-icon> Volver
+                    </button>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-6 offset-md-3 mt-2">
+            <div class="center-block">
+                <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+                    <div class="form-group">
+                        <label for="plate">
+                            Placa:
+                        </label>
+                        <input class="form-control" type="text" formControlName="plate">
+                        <div *ngIf="f.plate.errors && submited" class="alert alert-danger">
+                            <div *ngIf="f.plate.errors.required">
+                                La placa es requerida
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color">
+                            Color:
+                        </label>
+                        <input class="form-control" type="text" formControlName="color" required>
+                        <div *ngIf="f.color.errors && submited" class="alert alert-danger">
+                            <div *ngIf="f.color.errors.required">
+                                El color es requerido
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">
+                            Marca:
+                        </label>
+                        <input class="form-control" type="text" formControlName="brand">
+                        <div *ngIf="f.brand.errors && submited" class="alert alert-danger">
+                            <div *ngIf="f.brand.errors.required">
+                                La marca es requerida
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type_vehicle">
+                            Tipo Vehículo:
+                        </label>
+                        <input class="form-control" type="text" formControlName="type_vehicle">
+                        <div *ngIf="f.type_vehicle.errors && submited" class="alert alert-danger">
+                            <div *ngIf="f.type_vehicle.errors.required">
+                                El tipo de Vehículo es requerido
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Propietario</mat-label>
+                            <select matNativeControl formControlName="owner_id">
+                                <option value="{{ owner.id }}" *ngFor="let owner of listOwners">{{ owner.first_name }}
+                                </option>
+                            </select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Conductor</mat-label>
+                            <select matNativeControl formControlName="driver_id">
+                                <option value="{{ driver.id }}" *ngFor="let driver of listDrivers">
+                                    {{ driver.first_name }}</option>
+                            </select>
+                        </mat-form-field>
+                    </div>
+
+                    <button type="submit" class="float-right" mat-raised-button color="primary">Crear</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

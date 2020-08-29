@@ -1,1 +1,59 @@
-<p>vehicle works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col mt-4">
+            <h2>Vehículos <mat-icon>directions_car</mat-icon></h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" width="100%">
+
+                <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="plate">
+                    <th mat-header-cell *matHeaderCellDef> Cédula </th>
+                    <td mat-cell *matCellDef="let element"> {{element.plate}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="brand">
+                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="driver.first_name">
+                    <th mat-header-cell *matHeaderCellDef> Nombre Conductor </th>
+                    <td mat-cell *matCellDef="let element"> {{element.driver.first_name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="driver.surnames">
+                    <th mat-header-cell *matHeaderCellDef> Apellidos Conductor </th>
+                    <td mat-cell *matCellDef="let element"> {{element.driver.surnames}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="owner.first_name">
+                    <th mat-header-cell *matHeaderCellDef> Nombre Propietario </th>
+                    <td mat-cell *matCellDef="let element"> {{element.owner.first_name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="owner.surnames">
+                    <th mat-header-cell *matHeaderCellDef> Apellidos Propietario </th>
+                    <td mat-cell *matCellDef="let element"> {{element.owner.surnames}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-4 mb-4">
+            <button class="float-right" mat-raised-button color="primary" [routerLink]="['/vehicle/create']">Crear
+                vehículo <mat-icon>control_point</mat-icon></button>
+        </div>
+    </div>
+</div>

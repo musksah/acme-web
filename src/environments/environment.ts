@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 const BASE_LOCAL = "http://127.0.0.1:8000/api";
+const BASE_PROD = "http://45.82.73.11/api";
 
 export const environment = {
   production: false,

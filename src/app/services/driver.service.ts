@@ -4,12 +4,13 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Owner } from '../components/owner/owner.component';
 
-const API_URL = environment.baseApi + '/owners';
+const API_URL = environment.baseApi + '/drivers';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OwnerService {
+
+export class DriverService {
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +18,7 @@ export class OwnerService {
     return this.http.get<any[]>(API_URL);
   }
 
-  create(owner:Owner): Observable<any[]>{
-    return this.http.post<any[]>(API_URL, owner);
+  create(driver:Owner): Observable<any[]>{
+    return this.http.post<any[]>(API_URL, driver);
   }
-
 }
